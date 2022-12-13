@@ -1,0 +1,60 @@
+[
+    {
+        "type": "data",
+        "title": "Personal info",
+        "subtitle": "Pleave provide your name, email address, and phone number.",
+        "sideTitle": "Your info",
+        "fields": [
+            {
+                "label": "Name",
+                "type": "text",
+                "placeholder": "e.g. Stephen King"
+            },
+            {
+                "label": "Email Address",
+                "type": "email",
+                "placeholder": "e.g. stephenking@lorem.com"
+            },
+            {
+                "label": "Phone Number",
+                "type": "text",
+                "placeholder": "e.g. +1 234 567 890"
+            }
+        ]
+    },
+    {
+        "type": "select",
+        "title": "Select your plan",
+        "subtitle": "You have the option of monthly or yearly billing.",
+        "sideTitle": "Select plan",
+        "yearDiscount": "2 months free",
+        "options": [
+            { "label": "Arcade", "prices": { "month": 9, "year": 90 } },
+            { "label": "Advanced", "prices": { "month": 12, "year": 120 } },
+            { "label": "Pro", "prices": { "month": 15, "year": 150 } }
+        ]
+    },
+    {
+        "type": "add-ons",
+        "title": "Pick add-ons",
+        "subtitle": "Add-ons help enhance your gaming experience.",
+        "sideTitle": "Add-ons",
+        "addons": [
+            {
+                "label": "Online service",
+                "description": "Access to multiplayer games",
+                "prices": { "month": 1, "year": 10 }
+            },
+            {
+                "label": "Larger storage",
+                "description": "Extra 1TB of cloud save",
+                "prices": { "month": 2, "year": 20 }
+            },
+            {
+                "label": "Customizable profile",
+                "description": "Custom theme on your profile",
+                "prices": { "month": 1, "year": 10 }
+            }
+        ]
+    }
+]
