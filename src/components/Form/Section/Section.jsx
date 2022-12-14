@@ -1,7 +1,6 @@
 import React, { useRef, useContext, useEffect } from 'react';
 import { Data, Select, AddOns, Summary } from '.';
 import { FormContext } from '../../../contexts/FormContext';
-import st from './Section.module.scss';
 
 export default function Section({ data, index }) {
     const sectionRef = useRef();
@@ -30,13 +29,8 @@ export default function Section({ data, index }) {
     }, [currentSection, index, sectionRef]);
 
     return (
-        <section
-            className={`${st.container}`}
-            ref={sectionRef}
-            id={`section-${index}`}
-        >
+        <section ref={sectionRef} id={`section-${index}`}>
             {CustomSection && <CustomSection data={data} />}
-            {!CustomSection && 'ola'}
         </section>
     );
 }

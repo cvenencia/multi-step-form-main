@@ -1,10 +1,69 @@
-import React from 'react';
+import React, {
+    useRef,
+    createRef,
+    useEffect,
+    useContext,
+    useCallback,
+} from 'react';
+import { FormContext } from '../../../../contexts/FormContext';
+import st from './Data.module.scss';
 
 export default function Data({ data }) {
+    const refs = useRef(data.fields.map(() => createRef()));
+    const { setValidator, errors, setErrors } = useContext(FormContext);
+
+    const validator = useCallback(() => {
+        const errors = {};
+        refs.current.forEach((ref, index) => {
+            if (!ref.current.checkValidity()) {
+                errors[index] = 'This field is required';
+            } else {
+                delete errors[index];
+            }
+        });
+        setErrors(errors);
+    }, [setErrors]);
+
+    useEffect(() => {
+        setValidator(() => validator);
+    }, [setValidator, validator]);
+
     return (
         <>
-            <p style={{ fontWeight: 'bold' }}>Data Section</p>
-            {data.title} {data.subtitle}
+            <h2 className={`${st.title}`}>{data.title}</h2>
+            <h3 className={`${st.subtitle}`}>{data.subtitle}</h3>
+            <div className={`${st.container}`}>
+                {data.fields.map((field, index) => (
+                    <div key={index} className={`${st.inputWrapper}`}>
+                        <div className={`${st.labelWrapper}`}>
+                            <label htmlFor={`data-${field.label}`}>
+                                {field.label}{' '}
+                                {!field.required && (
+                                    <span className={st.optional}>
+                                        (optional)
+                                    </span>
+                                )}
+                            </label>
+                            <label
+                                className={`${
+                                    errors[index] ? st.errorLabel : 'hide'
+                                }`}
+                                htmlFor={`data-${field.label}`}
+                            >
+                                {errors[index]}
+                            </label>
+                        </div>
+                        <input
+                            className={errors[index] && st.errorInput}
+                            ref={refs.current[index]}
+                            id={`data-${field.label}`}
+                            type={field.type}
+                            placeholder={field.placeholder}
+                            required={field.required}
+                        />
+                    </div>
+                ))}
+            </div>
         </>
     );
 }

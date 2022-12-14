@@ -2,23 +2,26 @@
     {
         "type": "data",
         "title": "Personal info",
-        "subtitle": "Pleave provide your name, email address, and phone number.",
+        "subtitle": "Please provide your name, email address, and phone number.",
         "sideTitle": "Your info",
         "fields": [
             {
                 "label": "Name",
                 "type": "text",
-                "placeholder": "e.g. Stephen King"
+                "placeholder": "e.g. Stephen King",
+                "required": true
             },
             {
                 "label": "Email Address",
                 "type": "email",
-                "placeholder": "e.g. stephenking@lorem.com"
+                "placeholder": "e.g. stephenking@lorem.com",
+                "required": true
             },
             {
                 "label": "Phone Number",
-                "type": "text",
-                "placeholder": "e.g. +1 234 567 890"
+                "type": "tel",
+                "placeholder": "e.g. +1 234 567 890",
+                "required": true
             }
         ]
     },

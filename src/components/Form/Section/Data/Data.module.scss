@@ -1,0 +1,66 @@
+@use 'sass:map';
+@use '../../../../global.scss' as g;
+
+.title {
+    color: map.get(g.$colors, primary-600);
+    letter-spacing: 1px;
+    font-size: 2rem;
+}
+
+.subtitle {
+    color: map.get(g.$colors, neutral-500);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin-top: 2em;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    .labelWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        label {
+            color: map.get(g.$colors, primary-600);
+
+            &.errorLabel {
+                font-weight: 500;
+                color: map.get(g.$colors, secondary-400);
+            }
+        }
+
+        .optional {
+            color: map.get(g.$colors, neutral-500);
+        }
+    }
+
+    input {
+        padding: 0.25em 0.5em;
+        font-size: 1.25rem;
+        border: 2px solid map.get(g.$colors, neutral-400);
+        border-radius: 0.25em;
+        outline: none;
+        transition: border 100ms ease-out;
+
+        &::placeholder {
+            color: map.get(g.$colors, neutral-500);
+        }
+
+        &:is(:focus, :active, :focus-visible) {
+            border-color: map.get(g.$colors, primary-500);
+        }
+
+        &.errorInput {
+            border-color: map.get(g.$colors, secondary-400);
+        }
+    }
+}
