@@ -1,0 +1,46 @@
+@use 'sass:map';
+@use '../../../global.scss' as g;
+
+.container {
+    display: flex;
+}
+
+.next,
+.confirm {
+    margin-left: auto;
+    color: map.get(g.$colors, neutral-100);
+}
+
+.button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0.675em 1.5em;
+    font-weight: 500;
+    transition: 100ms ease-out;
+    transition-property: background-color, color;
+}
+
+.next {
+    background-color: map.get(g.$colors, primary-600);
+
+    &:hover {
+        background-color: map.get(g.$colors, primary-500);
+    }
+}
+
+.confirm {
+    background-color: map.get(g.$colors, primary-400);
+
+    &:hover {
+        background-color: map.get(g.$colors, primary-200);
+    }
+}
+
+.back {
+    color: map.get(g.$colors, neutral-500);
+
+    &:hover {
+        color: map.get(g.$colors, primary-600);
+    }
+}

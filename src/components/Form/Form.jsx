@@ -25,7 +25,7 @@ export default function Form() {
                 {!loading && (
                     <>
                         <Sidebar />
-                        <form>
+                        <form className={`${st.form}`}>
                             {formData.map((section, index) => (
                                 <Section
                                     key={`section-${index}`}
