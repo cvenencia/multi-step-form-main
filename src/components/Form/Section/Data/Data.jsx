@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { FormContext } from '../../../../contexts/FormContext';
 import st from './Data.module.scss';
+import gSt from '../global.module.scss';
 
 export default function Data({ data }) {
     const refs = useRef(data.fields.map(() => createRef()));
@@ -30,8 +31,8 @@ export default function Data({ data }) {
 
     return (
         <>
-            <h2 className={`${st.title}`}>{data.title}</h2>
-            <h3 className={`${st.subtitle}`}>{data.subtitle}</h3>
+            <h2 className={`${gSt.title}`}>{data.title}</h2>
+            <h3 className={`${gSt.subtitle}`}>{data.subtitle}</h3>
             <div className={`${st.container}`}>
                 {data.fields.map((field, index) => (
                     <div key={index} className={`${st.inputWrapper}`}>
