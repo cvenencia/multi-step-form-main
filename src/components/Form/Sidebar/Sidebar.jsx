@@ -1,16 +1,17 @@
 import React, { useContext } from 'react';
+import { FormContext } from '../../../contexts/FormContext';
+import { RadioInput } from '.';
+import st from './Sidebar.module.scss';
 
 export default function Sidebar() {
-    // const { formData, currentSection } = useContext(FormContext);
+    const { formData } = useContext(FormContext);
 
     return (
-        <div>
-            {/* {
-            formData.map((section, index) => {
-                
-            })
-        } */}
-            sidebar
+        <div className={`${st.container} b-radius`}>
+            {formData.map((section, index) => (
+                <RadioInput key={index} data={section} index={index} />
+            ))}
+            <RadioInput index={formData.length} />
         </div>
     );
 }

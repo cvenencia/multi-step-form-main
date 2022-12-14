@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '../../global.scss' as g;
+
+.megaContainer {
+    margin: 1em;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.container {
+    display: flex;
+    min-height: 40rem;
+    width: 100%;
+    padding: 1em;
+    gap: 1em;
+    background-color: map.get(g.$colors, neutral-100);
+}

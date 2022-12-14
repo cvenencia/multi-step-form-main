@@ -4,6 +4,7 @@ import Controls from './Controls';
 import Sidebar from './Sidebar';
 import { FormContext } from '../../contexts/FormContext';
 import { fetchFormData } from '../../services/fakeApi';
+import st from './Form.module.scss';
 
 export default function Form() {
     const [loading, setLoading] = useState(true);
@@ -18,24 +19,26 @@ export default function Form() {
     }, [formData]);
 
     return (
-        <div className='container'>
-            {loading && 'Loading'}
-            {!loading && (
-                <>
-                    <Sidebar />
-                    <form>
-                        {formData.map((section, index) => (
-                            <Section
-                                key={`section-${index}`}
-                                index={index}
-                                data={section}
-                            />
-                        ))}
-                        <Section data={{}} index={formData.length} />
-                        <Controls />
-                    </form>
-                </>
-            )}
+        <div className={`${st.megaContainer}`}>
+            <div className={`${st.container} b-radius`}>
+                {loading && 'Loading'}
+                {!loading && (
+                    <>
+                        <Sidebar />
+                        <form>
+                            {formData.map((section, index) => (
+                                <Section
+                                    key={`section-${index}`}
+                                    index={index}
+                                    data={section}
+                                />
+                            ))}
+                            <Section data={{}} index={formData.length} />
+                            <Controls />
+                        </form>
+                    </>
+                )}
+            </div>
         </div>
     );
 }
