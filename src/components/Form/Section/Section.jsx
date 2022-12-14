@@ -3,8 +3,6 @@ import { Data, Select, AddOns, Summary } from '.';
 import { FormContext } from '../../../contexts/FormContext';
 import st from './Section.module.scss';
 
-import globalStyles from '../../../global.module.scss';
-
 export default function Section({ data, index }) {
     const sectionRef = useRef();
     const { currentSection } = useContext(FormContext);
@@ -25,9 +23,9 @@ export default function Section({ data, index }) {
     const CustomSection = getSection(data);
     useEffect(() => {
         if (currentSection !== index) {
-            sectionRef.current.classList.toggle(globalStyles.hide, true);
+            sectionRef.current.classList.toggle('hide', true);
         } else {
-            sectionRef.current.classList.toggle(globalStyles.hide, false);
+            sectionRef.current.classList.toggle('hide', false);
         }
     }, [currentSection, index, sectionRef]);
 
