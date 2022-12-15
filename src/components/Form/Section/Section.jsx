@@ -30,7 +30,9 @@ export default function Section({ data, index }) {
 
     return (
         <section ref={sectionRef} id={`section-${index}`}>
-            {CustomSection && <CustomSection data={data} />}
+            {CustomSection && (
+                <CustomSection data={data} sectionIndex={index} />
+            )}
         </section>
     );
 }

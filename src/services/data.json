@@ -32,9 +32,21 @@
         "sideTitle": "Select plan",
         "yearDiscount": "2 months free",
         "options": [
-            { "label": "Arcade", "prices": { "month": 9, "year": 90 } },
-            { "label": "Advanced", "prices": { "month": 12, "year": 120 } },
-            { "label": "Pro", "prices": { "month": 15, "year": 150 } }
+            {
+                "label": "Arcade",
+                "prices": { "month": 9, "year": 90 },
+                "iconURL": "/images/icon-arcade.svg"
+            },
+            {
+                "label": "Advanced",
+                "prices": { "month": 12, "year": 120 },
+                "iconURL": "/images/icon-advanced.svg"
+            },
+            {
+                "label": "Pro",
+                "prices": { "month": 15, "year": 150 },
+                "iconURL": "/images/icon-pro.svg"
+            }
         ]
     },
     {

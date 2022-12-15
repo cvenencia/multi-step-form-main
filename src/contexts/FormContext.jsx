@@ -5,8 +5,10 @@ const FormContext = createContext();
 function FormProvider({ children }) {
     const [formData, setFormData] = useState(null);
     const [currentSection, setCurrentSection] = useState(0);
+    const [selectedOptions, setSelectedOptions] = useState([]);
     const [validator, setValidator] = useState();
     const [errors, setErrors] = useState({});
+    const [planType, setPlanType] = useState('monthly');
 
     return (
         <FormContext.Provider
@@ -19,6 +21,10 @@ function FormProvider({ children }) {
                 setValidator,
                 errors,
                 setErrors,
+                planType,
+                setPlanType,
+                selectedOptions,
+                setSelectedOptions,
             }}
         >
             {children}
