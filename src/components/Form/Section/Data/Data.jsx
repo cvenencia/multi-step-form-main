@@ -61,6 +61,7 @@ export default function Data({ data }) {
                             type={field.type}
                             placeholder={field.placeholder}
                             required={field.required}
+                            name={field.name}
                         />
                     </div>
                 ))}

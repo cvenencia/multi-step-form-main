@@ -67,10 +67,11 @@ export default function Select({ data, sectionIndex }) {
                     <React.Fragment key={index}>
                         <input
                             type='radio'
-                            name={`plan-type-${sectionIndex}`}
+                            name={data.name}
                             id={`option-${option.label}`}
                             className='hide'
                             onChange={() => handleChange(option)}
+                            value={option.value}
                         />
                         <div
                             className={`${st.option} ${
@@ -113,7 +114,7 @@ export default function Select({ data, sectionIndex }) {
                 >
                     Monthly
                 </label>
-                <Checkbox name='plan' id='planSelector' />
+                <Checkbox name='planType' id='planSelector' value='yearly' />
                 <label
                     className={checked ? st.checked : undefined}
                     htmlFor='planSelector'

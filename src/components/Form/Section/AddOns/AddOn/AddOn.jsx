@@ -18,7 +18,7 @@ export default function AddOns({ data, handleChange }) {
                 <input
                     className='hide'
                     type='checkbox'
-                    name='addons'
+                    name={data.name}
                     id={`addon-${data.label}`}
                     ref={inputRef}
                     onChange={() =>

@@ -7,18 +7,21 @@
         "fields": [
             {
                 "label": "Name",
+                "name": "name",
                 "type": "text",
                 "placeholder": "e.g. Stephen King",
                 "required": true
             },
             {
                 "label": "Email Address",
+                "name": "email",
                 "type": "email",
                 "placeholder": "e.g. stephenking@lorem.com",
                 "required": true
             },
             {
                 "label": "Phone Number",
+                "name": "phoneNumber",
                 "type": "tel",
                 "placeholder": "e.g. +1 234 567 890",
                 "required": true
@@ -29,21 +32,25 @@
         "type": "select",
         "title": "Select your plan",
         "subtitle": "You have the option of monthly or yearly billing.",
+        "name": "plan",
         "sideTitle": "Select plan",
         "yearDiscount": "2 months free",
         "options": [
             {
                 "label": "Arcade",
+                "value": "arcade",
                 "prices": { "month": 9, "year": 90 },
                 "iconURL": "/images/icon-arcade.svg"
             },
             {
                 "label": "Advanced",
+                "value": "advanced",
                 "prices": { "month": 12, "year": 120 },
                 "iconURL": "/images/icon-advanced.svg"
             },
             {
                 "label": "Pro",
+                "value": "pro",
                 "prices": { "month": 15, "year": 150 },
                 "iconURL": "/images/icon-pro.svg"
             }
@@ -57,16 +64,19 @@
         "addons": [
             {
                 "label": "Online service",
+                "name": "onlineService",
                 "description": "Access to multiplayer games",
                 "prices": { "month": 1, "year": 10 }
             },
             {
                 "label": "Larger storage",
+                "name": "largerStorage",
                 "description": "Extra 1TB of cloud save",
                 "prices": { "month": 2, "year": 20 }
             },
             {
                 "label": "Customizable profile",
+                "name": "customizable",
                 "description": "Custom theme on your profile",
                 "prices": { "month": 2, "year": 20 }
             }
