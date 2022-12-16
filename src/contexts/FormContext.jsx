@@ -6,6 +6,7 @@ function FormProvider({ children }) {
     const [formData, setFormData] = useState(null);
     const [currentSection, setCurrentSection] = useState(0);
     const [selectedOptions, setSelectedOptions] = useState([]);
+    const [checkedAddOns, setCheckedAddOns] = useState([]);
     const [validator, setValidator] = useState();
     const [errors, setErrors] = useState({});
     const [planType, setPlanType] = useState('monthly');
@@ -25,6 +26,8 @@ function FormProvider({ children }) {
                 setPlanType,
                 selectedOptions,
                 setSelectedOptions,
+                checkedAddOns,
+                setCheckedAddOns,
             }}
         >
             {children}

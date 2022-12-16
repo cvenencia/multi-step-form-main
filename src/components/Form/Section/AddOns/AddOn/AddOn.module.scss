@@ -1,0 +1,68 @@
+@use 'sass:map';
+@use '../../../../../global.scss' as g;
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    padding: 1em 2em;
+    border: 1px solid map.get(g.$colors, neutral-400);
+    cursor: pointer;
+    transition: 100ms ease-out;
+    transition-property: background-color, border;
+
+    * {
+        pointer-events: none;
+        user-select: none;
+    }
+
+    &.checked {
+        border: 1px solid map.get(g.$colors, primary-400);
+        background-color: map.get(g.$colors, neutral-200);
+
+        .checkbox input + label {
+            background-color: map.get(g.$colors, primary-400);
+
+            &::before {
+                content: url('/assets/images/icon-checkmark.svg');
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -10%);
+                margin: auto;
+                height: fit-content;
+            }
+        }
+    }
+
+    .checkbox input {
+        & + label {
+            user-select: none;
+            display: block;
+            width: 1.5em;
+            height: 1.5em;
+            border: 1px solid map.get(g.$colors, neutral-400);
+            border-radius: 0.375em;
+            position: relative;
+            transition: background-color 100ms ease-out;
+        }
+    }
+
+    > .label {
+        flex-basis: 100%;
+
+        label {
+            color: map.get(g.$colors, primary-600);
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 0.875rem;
+            color: map.get(g.$colors, neutral-500);
+        }
+    }
+
+    .price {
+        color: map.get(g.$colors, primary-400);
+    }
+}

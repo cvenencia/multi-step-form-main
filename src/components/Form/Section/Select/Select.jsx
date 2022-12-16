@@ -41,7 +41,7 @@ export default function Select({ data, sectionIndex }) {
                     <React.Fragment key={index}>
                         <input
                             type='radio'
-                            name='plan-type'
+                            name={`plan-type-${sectionIndex}`}
                             id={`option-${option.label}`}
                             className='hide'
                             defaultChecked={index === 0}
