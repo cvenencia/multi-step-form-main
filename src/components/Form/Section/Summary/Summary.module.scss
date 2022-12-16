@@ -1,0 +1,98 @@
+@use 'sass:map';
+@use '../../../../global.scss' as g;
+
+.container {
+    margin-top: 2em;
+    padding: 1em 2em;
+    background-color: map.get(g.$colors, neutral-200);
+
+    hr {
+        border: none;
+        background-color: map.get(g.$colors, neutral-400);
+        height: 1px;
+        margin-top: 1em;
+    }
+
+    .selectContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2em;
+
+        div {
+            p {
+                margin: 0;
+                font-size: 1.125rem;
+                font-weight: 500;
+                color: map.get(g.$colors, primary-600);
+            }
+
+            button {
+                border: none;
+                background: none;
+                padding: 0;
+                color: map.get(g.$colors, neutral-500);
+                cursor: pointer;
+                position: relative;
+                transition: color 100ms ease-out;
+
+                &:hover {
+                    color: map.get(g.$colors, primary-400);
+
+                    &::after {
+                        background-color: map.get(g.$colors, primary-500);
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 2px;
+                    height: 2px;
+                    background-color: map.get(g.$colors, neutral-500);
+                }
+            }
+        }
+
+        .price {
+            color: map.get(g.$colors, primary-600);
+            font-weight: 500;
+            font-size: 1.125rem;
+        }
+    }
+
+    .addOnsContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-top: 1em;
+
+        .addOnContainer {
+            display: flex;
+            justify-content: space-between;
+
+            p {
+                color: map.get(g.$colors, neutral-500);
+            }
+        }
+    }
+}
+
+.totalContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 2em;
+
+    .label {
+        color: map.get(g.$colors, neutral-500);
+    }
+
+    .total {
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: map.get(g.$colors, primary-400);
+    }
+}

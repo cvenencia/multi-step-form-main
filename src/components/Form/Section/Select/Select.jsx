@@ -44,7 +44,6 @@ export default function Select({ data, sectionIndex }) {
                             name={`plan-type-${sectionIndex}`}
                             id={`option-${option.label}`}
                             className='hide'
-                            defaultChecked={index === 0}
                             onChange={() => handleChange(option)}
                         />
                         <div

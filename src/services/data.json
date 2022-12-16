@@ -9,19 +9,19 @@
                 "label": "Name",
                 "type": "text",
                 "placeholder": "e.g. Stephen King",
-                "required": false
+                "required": true
             },
             {
                 "label": "Email Address",
                 "type": "email",
                 "placeholder": "e.g. stephenking@lorem.com",
-                "required": false
+                "required": true
             },
             {
                 "label": "Phone Number",
                 "type": "tel",
                 "placeholder": "e.g. +1 234 567 890",
-                "required": false
+                "required": true
             }
         ]
     },
@@ -68,7 +68,7 @@
             {
                 "label": "Customizable profile",
                 "description": "Custom theme on your profile",
-                "prices": { "month": 1, "year": 10 }
+                "prices": { "month": 2, "year": 20 }
             }
         ]
     }
