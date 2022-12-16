@@ -22,6 +22,10 @@
         transition: 100ms ease-out;
         transition-property: border, background-color;
 
+        &.error {
+            border-color: map.get(g.$colors, secondary-400);
+        }
+
         &:is(:hover, :focus-visible) {
             border-color: map.get(g.$colors, primary-500);
         }
@@ -49,6 +53,12 @@
             font-size: 0.875rem;
         }
     }
+}
+
+.errorMessage {
+    font-weight: 500;
+    color: map.get(g.$colors, secondary-400);
+    margin-block: 1em;
 }
 
 .planSelectorContainer {

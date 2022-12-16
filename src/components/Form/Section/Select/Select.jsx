@@ -1,12 +1,26 @@
-import React, { createRef, useContext, useEffect, useRef } from 'react';
+import React, {
+    createRef,
+    useCallback,
+    useContext,
+    useEffect,
+    useRef,
+} from 'react';
 import st from './Select.module.scss';
 import gSt from '../global.module.scss';
 import { FormContext } from '../../../../contexts/FormContext';
 import useCheckbox from '../../../ui/Checkbox/Checkbox';
 
 export default function Select({ data, sectionIndex }) {
-    const { planType, setSelectedOptions, setPlanType } =
-        useContext(FormContext);
+    const {
+        planType,
+        selectedOptions,
+        setSelectedOptions,
+        setPlanType,
+        setValidator,
+        currentSection,
+        errors,
+        setErrors,
+    } = useContext(FormContext);
     const refs = useRef(data.options.map(() => createRef()));
     const [Checkbox, checked] = useCheckbox();
 
@@ -28,9 +42,21 @@ export default function Select({ data, sectionIndex }) {
         ]);
     };
 
+    const validator = useCallback(() => {
+        if (selectedOptions.length === 0) {
+            setErrors({ message: 'Select a plan' });
+        } else {
+            setErrors({});
+        }
+    }, [selectedOptions, setErrors]);
+
     useEffect(() => {
         setPlanType(checked ? 'yearly' : 'monthly');
     }, [checked, setPlanType]);
+
+    useEffect(() => {
+        if (currentSection === sectionIndex) setValidator(() => validator);
+    }, [setValidator, currentSection, sectionIndex, validator]);
 
     return (
         <>
@@ -47,7 +73,9 @@ export default function Select({ data, sectionIndex }) {
                             onChange={() => handleChange(option)}
                         />
                         <div
-                            className={`${st.option} b-radius`}
+                            className={`${st.option} ${
+                                errors.message ? st.error : ''
+                            } b-radius`}
                             data-index={index}
                             onClick={activateOption}
                             onKeyDown={activateOption}
@@ -75,6 +103,9 @@ export default function Select({ data, sectionIndex }) {
                     </React.Fragment>
                 ))}
             </div>
+            {errors.message ? (
+                <div className={st.errorMessage}>{errors.message}</div>
+            ) : undefined}
             <div className={st.planSelectorContainer}>
                 <label
                     className={!checked ? st.checked : undefined}
