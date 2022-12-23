@@ -9,9 +9,10 @@ import { FormContext } from '../../../../contexts/FormContext';
 import st from './Data.module.scss';
 import gSt from '../global.module.scss';
 
-export default function Data({ data }) {
+export default function Data({ data, sectionIndex }) {
     const refs = useRef(data.fields.map(() => createRef()));
-    const { setValidator, errors, setErrors } = useContext(FormContext);
+    const { setValidator, errors, setErrors, currentSection } =
+        useContext(FormContext);
 
     const validator = useCallback(() => {
         const errors = {};
@@ -26,8 +27,8 @@ export default function Data({ data }) {
     }, [setErrors]);
 
     useEffect(() => {
-        setValidator(() => validator);
-    }, [setValidator, validator]);
+        if (currentSection === sectionIndex) setValidator(() => validator);
+    }, [setValidator, currentSection, sectionIndex, validator]);
 
     return (
         <>
