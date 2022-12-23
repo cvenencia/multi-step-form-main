@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 2em;
-    padding: 1em 2em;
+    padding: 1em 1.5em;
     border: 1px solid map.get(g.$colors, neutral-400);
     cursor: pointer;
     transition: 100ms ease-out;
@@ -28,7 +28,7 @@
                 content: url('/assets/images/icon-checkmark.svg');
                 position: absolute;
                 left: 50%;
-                transform: translate(-50%, -10%);
+                transform: translate(-50%, -15%);
                 margin: auto;
                 height: fit-content;
             }
@@ -39,8 +39,8 @@
         & + label {
             user-select: none;
             display: block;
-            width: 1.5em;
-            height: 1.5em;
+            width: 1.25em;
+            height: 1.25em;
             border: 1px solid map.get(g.$colors, neutral-400);
             border-radius: 0.375em;
             position: relative;
@@ -63,6 +63,7 @@
     }
 
     .price {
+        font-size: 0.875rem;
         color: map.get(g.$colors, primary-400);
     }
 }

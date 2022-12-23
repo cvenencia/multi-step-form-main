@@ -17,7 +17,7 @@
         outline: none;
         border: 2px solid map.get(g.$colors, neutral-400);
         padding: 1em;
-        width: 10em;
+        width: 8.75em;
         cursor: pointer;
         transition: 100ms ease-out;
         transition-property: border, background-color;
@@ -41,16 +41,16 @@
         label {
             color: map.get(g.$colors, primary-600);
             font-weight: 500;
-            font-size: 1.125rem;
         }
 
         .price {
             color: map.get(g.$colors, neutral-500);
+            font-size: 0.875rem;
         }
 
         .yearDiscount {
             color: map.get(g.$colors, primary-600);
-            font-size: 0.875rem;
+            font-size: 0.75rem;
         }
     }
 }

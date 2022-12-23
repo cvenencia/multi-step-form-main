@@ -22,7 +22,6 @@
         div {
             p {
                 margin: 0;
-                font-size: 1.125rem;
                 font-weight: 500;
                 color: map.get(g.$colors, primary-600);
             }
@@ -31,6 +30,7 @@
                 border: none;
                 background: none;
                 padding: 0;
+                font-size: 0.875rem;
                 color: map.get(g.$colors, neutral-500);
                 cursor: pointer;
                 position: relative;
@@ -74,6 +74,7 @@
             justify-content: space-between;
 
             p {
+                font-size: 0.875rem;
                 color: map.get(g.$colors, neutral-500);
             }
         }
@@ -87,6 +88,7 @@
     padding: 2em 2em;
 
     .label {
+        font-size: 0.875rem;
         color: map.get(g.$colors, neutral-500);
     }
 
