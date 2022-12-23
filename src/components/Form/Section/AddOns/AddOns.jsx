@@ -30,7 +30,7 @@ export default function AddOns({ data, sectionIndex }) {
     };
 
     return (
-        <section id={data.id}>
+        <>
             <h2 className={`${gSt.title}`}>{data.title}</h2>
             <h3 className={`${gSt.subtitle}`}>{data.subtitle}</h3>
             <div className={st.container}>
@@ -42,6 +42,6 @@ export default function AddOns({ data, sectionIndex }) {
                     />
                 ))}
             </div>
-        </section>
+        </>
     );
 }

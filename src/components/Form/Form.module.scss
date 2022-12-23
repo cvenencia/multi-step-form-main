@@ -14,12 +14,35 @@
     padding: 1em;
     gap: 1em;
     background-color: map.get(g.$colors, neutral-100);
+
+    &.loading {
+        justify-content: center;
+        align-items: center;
+    }
+
+    @include g.mq(tablet) {
+        margin-top: 5em;
+    }
+
+    @include g.mq(tablet-s) {
+        min-height: auto;
+    }
 }
 
 .form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 1.5em;
     flex-basis: 100%;
     padding: 2.25em 5.125em;
+
+    @include g.mq(tablet) {
+        padding-block: 0.75em;
+        padding-inline: 2em;
+    }
+
+    @include g.mq(mobile) {
+        padding-inline: 0.5em;
+    }
 }

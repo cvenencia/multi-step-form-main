@@ -1,3 +1,5 @@
+@use '../../../global.scss' as g;
+
 .container {
     display: flex;
     flex-direction: column;
@@ -7,4 +9,21 @@
     background-repeat: no-repeat;
     padding: 2em;
     min-width: 17em;
+    border-radius: 0.5em;
+
+    @include g.mq(tablet-s) {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 10.625em;
+        background-image: url('/assets/images/bg-sidebar-mobile.svg');
+        z-index: -1;
+        min-width: auto;
+        border-radius: 0;
+    }
 }

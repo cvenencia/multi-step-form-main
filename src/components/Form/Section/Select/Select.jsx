@@ -86,19 +86,21 @@ export default function Select({ data, sectionIndex }) {
                                 src={option.iconURL}
                                 alt={`Icon for ${option.label} option`}
                             />
-                            <label
-                                ref={refs.current[index]}
-                                htmlFor={`option-${option.label}`}
-                            >
-                                {option.label}
-                            </label>
-                            <div className={st.price}>
-                                {planType === 'monthly'
-                                    ? `$${option.prices.month}/mo`
-                                    : `$${option.prices.year}/yr`}
-                            </div>
-                            <div className={st.yearDiscount}>
-                                {planType === 'yearly' && data.yearDiscount}
+                            <div>
+                                <label
+                                    ref={refs.current[index]}
+                                    htmlFor={`option-${option.label}`}
+                                >
+                                    {option.label}
+                                </label>
+                                <div className={st.price}>
+                                    {planType === 'monthly'
+                                        ? `$${option.prices.month}/mo`
+                                        : `$${option.prices.year}/yr`}
+                                </div>
+                                <div className={st.yearDiscount}>
+                                    {planType === 'yearly' && data.yearDiscount}
+                                </div>
                             </div>
                         </div>
                     </React.Fragment>
@@ -109,14 +111,16 @@ export default function Select({ data, sectionIndex }) {
             ) : undefined}
             <div className={st.planSelectorContainer}>
                 <label
-                    className={!checked ? st.checked : undefined}
+                    className={`${!checked ? st.checked : undefined} ${
+                        st.plan
+                    }`}
                     htmlFor='planSelector'
                 >
                     Monthly
                 </label>
                 <Checkbox name='planType' id='planSelector' value='yearly' />
                 <label
-                    className={checked ? st.checked : undefined}
+                    className={`${checked ? st.checked : undefined} ${st.plan}`}
                     htmlFor='planSelector'
                 >
                     Yearly

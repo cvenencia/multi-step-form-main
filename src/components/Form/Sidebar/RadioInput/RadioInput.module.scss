@@ -12,6 +12,12 @@
     width: fit-content;
 }
 
+.labelContainer {
+    @include g.mq(tablet-s) {
+        @include g.sr-only;
+    }
+}
+
 .label {
     color: map.get(g.$colors, neutral-100);
     text-transform: uppercase;

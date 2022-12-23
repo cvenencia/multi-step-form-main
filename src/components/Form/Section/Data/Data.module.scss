@@ -6,12 +6,20 @@
     flex-direction: column;
     gap: 1.5em;
     margin-top: 2em;
+
+    @include g.mq(mobile) {
+        margin-top: 1em;
+    }
 }
 
 .inputWrapper {
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+
+    @include g.mq(tablet-s) {
+        gap: 0em;
+    }
 
     .labelWrapper {
         display: flex;

@@ -5,10 +5,18 @@
     color: map.get(g.$colors, primary-600);
     letter-spacing: 1px;
     font-size: 1.875rem;
+
+    @include g.mq(mobile) {
+        font-size: 1.5rem;
+        letter-spacing: 0px;
+    }
 }
 
 .subtitle {
     color: map.get(g.$colors, neutral-500);
     font-weight: 400;
     font-size: 1rem;
+
+    @include g.mq(mobile) {
+    }
 }

@@ -6,6 +6,7 @@ import { FormContext } from '../../contexts/FormContext';
 import { fetchFormData } from '../../services/fakeApi';
 import st from './Form.module.scss';
 import ThankYou from './ThankYou';
+import { TailSpin } from 'react-loader-spinner';
 
 export default function Form() {
     const [loading, setLoading] = useState(true);
@@ -35,8 +36,23 @@ export default function Form() {
 
     return (
         <div className={`${st.megaContainer}`}>
-            <div className={`${st.container} b-radius`}>
-                {loading && 'Loading'}
+            <div
+                className={`${st.container} ${
+                    loading ? st.loading : ''
+                } b-radius`}
+            >
+                {loading && (
+                    <TailSpin
+                        height='80'
+                        width='80'
+                        color='hsl(213, 96%, 18%)'
+                        ariaLabel='tail-spin-loading'
+                        radius='1'
+                        wrapperStyle={{}}
+                        wrapperClass=''
+                        visible={true}
+                    />
+                )}
                 {!loading && (
                     <>
                         <Sidebar />

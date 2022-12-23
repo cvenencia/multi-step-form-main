@@ -12,6 +12,10 @@
     transition: 100ms ease-out;
     transition-property: background-color, border;
 
+    @include g.mq(tablet) {
+        gap: 1em;
+    }
+
     * {
         pointer-events: none;
         user-select: none;

@@ -9,9 +9,19 @@
     height: 100%;
     gap: 1em;
 
+    @include g.mq(tablet-s) {
+        padding: 2.5em 1em;
+        gap: 0.5em;
+    }
+
     img {
         max-width: 5em;
         margin-bottom: 1em;
+
+        @include g.mq(tablet-s) {
+            max-width: 4em;
+            margin-bottom: 0.5em;
+        }
     }
 
     > * {
@@ -21,6 +31,10 @@
     h2 {
         font-size: 2rem;
         color: map.get(g.$colors, primary-600);
+
+        @include g.mq(tablet-s) {
+            font-size: 1.5rem;
+        }
     }
 
     p {

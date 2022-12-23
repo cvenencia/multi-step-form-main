@@ -25,7 +25,7 @@ export default function RadioInput({ data, index }) {
             >
                 {index + 1}
             </label>
-            <div>
+            <div className={st.labelContainer}>
                 <div className={`${st.label} ${st.step}`}>
                     <label htmlFor={`radio-${index}`}>STEP {index + 1}</label>
                 </div>
