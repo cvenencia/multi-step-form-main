@@ -10,6 +10,8 @@ function FormProvider({ children }) {
     const [validator, setValidator] = useState();
     const [errors, setErrors] = useState({});
     const [planType, setPlanType] = useState('monthly');
+    const [sending, setSending] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     return (
         <FormContext.Provider
@@ -28,6 +30,10 @@ function FormProvider({ children }) {
                 setSelectedOptions,
                 checkedAddOns,
                 setCheckedAddOns,
+                sending,
+                setSending,
+                success,
+                setSuccess,
             }}
         >
             {children}

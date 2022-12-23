@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../../../global.scss' as g;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 1em;
+
+    img {
+        max-width: 5em;
+        margin-bottom: 1em;
+    }
+
+    > * {
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: map.get(g.$colors, primary-600);
+    }
+
+    p {
+        color: map.get(g.$colors, neutral-500);
+    }
+}

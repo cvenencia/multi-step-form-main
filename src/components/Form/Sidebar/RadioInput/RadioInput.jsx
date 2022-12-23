@@ -3,7 +3,7 @@ import { FormContext } from '../../../../contexts/FormContext';
 import st from './RadioInput.module.scss';
 
 export default function RadioInput({ data, index }) {
-    const { currentSection } = useContext(FormContext);
+    const { currentSection, formData } = useContext(FormContext);
 
     return (
         <div className={st.container}>
@@ -12,7 +12,11 @@ export default function RadioInput({ data, index }) {
                 type='radio'
                 name='form-stage'
                 id={`radio-${index}`}
-                checked={index === currentSection}
+                checked={
+                    index === currentSection ||
+                    (currentSection === formData.length + 1 &&
+                        index === formData.length)
+                }
                 readOnly
             />
             <label

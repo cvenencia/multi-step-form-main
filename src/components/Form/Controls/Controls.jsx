@@ -3,8 +3,15 @@ import { FormContext } from '../../../contexts/FormContext';
 import st from './Controls.module.scss';
 
 export default function Controls() {
-    const { formData, currentSection, setCurrentSection, validator, errors } =
-        useContext(FormContext);
+    const {
+        formData,
+        currentSection,
+        setCurrentSection,
+        validator,
+        errors,
+        sending,
+        success,
+    } = useContext(FormContext);
     const [action, setAction] = useState();
 
     const handleNext = () => {
@@ -18,28 +25,38 @@ export default function Controls() {
         }
     }, [errors, action, setCurrentSection]);
 
-    useEffect(() => {}, [errors]);
+    const nextBtnClassName =
+        currentSection === formData.length
+            ? st.confirm
+            : currentSection === formData.length + 1
+            ? 'hide'
+            : st.next;
 
     return (
-        <div className={`${st.container}`}>
-            <button
-                className={`${currentSection === 0 ? 'hide' : st.back} ${
-                    st.button
-                }`}
-                type='button'
-                onClick={() => setCurrentSection(c => c - 1)}
-            >
-                Go back
-            </button>
-            <button
-                className={`${
-                    currentSection === formData.length ? st.confirm : st.next
-                } ${st.button} b-radius`}
-                type={currentSection === formData.length ? 'submit' : 'button'}
-                onClick={handleNext}
-            >
-                {currentSection === formData.length ? 'Confirm' : 'Next Step'}
-            </button>
-        </div>
+        !sending &&
+        !success && (
+            <div className={`${st.container}`}>
+                <button
+                    className={`${currentSection === 0 ? 'hide' : st.back} ${
+                        st.button
+                    }`}
+                    type='button'
+                    onClick={() => setCurrentSection(c => c - 1)}
+                >
+                    Go back
+                </button>
+                <button
+                    className={`${nextBtnClassName} ${st.button} b-radius`}
+                    type={
+                        currentSection === formData.length ? 'submit' : 'button'
+                    }
+                    onClick={handleNext}
+                >
+                    {currentSection === formData.length
+                        ? 'Confirm'
+                        : 'Next Step'}
+                </button>
+            </div>
+        )
     );
 }
