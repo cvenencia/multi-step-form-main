@@ -35,7 +35,8 @@ export default function Form() {
     };
 
     return (
-        <div className={`${st.megaContainer}`}>
+        <main className={`${st.megaContainer}`}>
+            <h1 className='sr-only'>Dynamic Form</h1>
             <div
                 className={`${st.container} ${
                     loading ? st.loading : ''
@@ -71,6 +72,6 @@ export default function Form() {
                     </>
                 )}
             </div>
-        </div>
+        </main>
     );
 }

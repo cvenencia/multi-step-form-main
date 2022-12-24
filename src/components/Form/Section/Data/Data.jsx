@@ -38,7 +38,7 @@ export default function Data({ data, sectionIndex }) {
                 {data.fields.map((field, index) => (
                     <div key={index} className={`${st.inputWrapper}`}>
                         <div className={`${st.labelWrapper}`}>
-                            <label htmlFor={`data-${field.label}`}>
+                            <label htmlFor={`data-${field.name}`}>
                                 {field.label}{' '}
                                 {!field.required && (
                                     <span className={st.optional}>
@@ -50,7 +50,7 @@ export default function Data({ data, sectionIndex }) {
                                 className={`${
                                     errors[index] ? st.errorLabel : 'hide'
                                 }`}
-                                htmlFor={`data-${field.label}`}
+                                htmlFor={`data-${field.name}`}
                             >
                                 {errors[index]}
                             </label>
@@ -58,7 +58,7 @@ export default function Data({ data, sectionIndex }) {
                         <input
                             className={errors[index] && st.errorInput}
                             ref={refs.current[index]}
-                            id={`data-${field.label}`}
+                            id={`data-${field.name}`}
                             type={field.type}
                             placeholder={field.placeholder}
                             required={field.required}

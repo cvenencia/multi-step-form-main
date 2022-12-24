@@ -19,16 +19,16 @@ export default function AddOns({ data, handleChange }) {
                     className='hide'
                     type='checkbox'
                     name={data.name}
-                    id={`addon-${data.label}`}
+                    id={`addon-${data.name}`}
                     ref={inputRef}
                     onChange={() =>
                         handleChange(data, inputRef.current?.checked)
                     }
                 />
-                <label ref={labelRef} htmlFor={`addon-${data.label}`}></label>
+                <label ref={labelRef} htmlFor={`addon-${data.name}`}></label>
             </div>
             <div className={st.label}>
-                <label htmlFor={`addon-${data.label}`}>{data.label}</label>
+                <label htmlFor={`addon-${data.name}`}>{data.label}</label>
                 <p>{data.description}</p>
             </div>
             <div className={st.price}>

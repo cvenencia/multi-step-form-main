@@ -5,6 +5,10 @@ import st from './RadioInput.module.scss';
 export default function RadioInput({ data, index }) {
     const { currentSection, formData } = useContext(FormContext);
 
+    const checked =
+        index === currentSection ||
+        (currentSection === formData.length + 1 && index === formData.length);
+
     return (
         <div className={st.container}>
             <input
@@ -12,12 +16,9 @@ export default function RadioInput({ data, index }) {
                 type='radio'
                 name='form-stage'
                 id={`radio-${index}`}
-                checked={
-                    index === currentSection ||
-                    (currentSection === formData.length + 1 &&
-                        index === formData.length)
-                }
-                readOnly
+                checked={checked}
+                disabled={!checked}
+                onChange={() => {}}
             />
             <label
                 className={`${st.label} ${st.index}`}

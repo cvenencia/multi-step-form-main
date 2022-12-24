@@ -31,6 +31,10 @@
     width: 1px;
 }
 
+.sr-only {
+    @include sr-only();
+}
+
 html {
     font-family: 'Ubuntu', sans-serif;
 }
